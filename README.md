@@ -20,4 +20,4 @@ I want to be able to filter my favourites by their tags
 
 #### Domain model
 
-<img src="https://files.slack.com/files-pri/T03ALA7H4-F56R1MDFU/image_uploaded_from_ios.jpg">
+<img src="https://cloud.githubusercontent.com/assets/25727106/25578426/86b2a012-2e66-11e7-9732-9e7d82869ebc.jpg">
