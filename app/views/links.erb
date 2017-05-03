@@ -2,9 +2,18 @@
 <head>
 </head>
 <body>
-  <h1> Links are: </h1><br>
-  <% @links.each_with_index do |link, index|  %>
-  <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title] %></a></p>
-  <% end %>
+  <div>
+    <h1> Links are: </h1><br>
+  </div>
+  <div>
+    <% @links.each_with_index do |link, index|  %>
+    <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title] %></a></p>
+    <% end %>
+  </div>
+  <div>
+    <form action='/links/new' method='get'>
+      <button type='submit'>NEW LINK</button>
+    </form>
+  </div>
 </body>
 </html>
