@@ -2,6 +2,9 @@
 <head>
 </head>
 <body>
-  <h1> Links are <%= @links[:title] %> </h1>
+  <h1> Links are: </h1><br>
+  <% @links.each_with_index do |link, index|  %>
+  <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title] %></a></p>
+  <% end %>
 </body>
 </html>
