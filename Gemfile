@@ -1,13 +1,15 @@
 # frozen_string_literal: true
-source "https://rubygems.org"
+
+source 'https://rubygems.org'
 
 ruby '2.4.0'
 
-gem 'sinatra'
-gem 'rack', '1.5'
+gem 'capybara'
 gem 'data_mapper'
 gem 'dm-postgres-adapter'
-gem 'rerun'
-gem 'capybara'
-gem 'rubocop'
 gem 'pry'
+gem 'rack', '1.5'
+gem 'rerun'
+gem 'rubocop'
+gem 'sinatra'
+gem 'database_cleaner'

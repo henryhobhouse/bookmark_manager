@@ -2,9 +2,8 @@ require 'sinatra/base'
 require_relative 'models/link_model.rb'
 require 'pry'
 
-
-class Bookmark_manager < Sinatra::Base
-
+# Controller for bookmark app
+class BookmarkManager < Sinatra::Base
   get '/links' do
     @links = Link.all
     erb :links
@@ -22,7 +21,6 @@ class Bookmark_manager < Sinatra::Base
   get '/links/new' do
     erb :new
   end
-  
 
-  run! if app_file == $0
+  run! if app_file == $PROGRAM_NAME
 end
