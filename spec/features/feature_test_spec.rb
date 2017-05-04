@@ -39,6 +39,25 @@ end
 # So that I can see what type of URL's it is
 # I want to be able to tag the URL with a category label
 
+feature 'To find links faster I want to give them label tags that I can filter' do
+
+  scenario '#User can add label tags to new links' do
+    visit '/links/new'
+    expect(page).to have_content('Tag:')
+  end
+
+  scenario "#User can see tags on the '/links' page" do
+    visit '/links/new'
+    fill_in('title', with: 'Google')
+    fill_in('url', with: 'http://www.google.com')
+    fill_in('tag', with: 'Search Engine')
+    click_button('submit')
+    expect(Tag.last[:tag]).to eq 'Search Engine'
+  end
+
+end
+
+
 # As a user
 # So that I can find similar URL's faster
 # I want to be able to filter my favourites by their tags
