@@ -52,7 +52,7 @@ feature 'To find links faster I want to give them label tags that I can filter' 
     fill_in('url', with: 'http://www.google.com')
     fill_in('tag', with: 'Search Engine')
     click_button('submit')
-    expect(Tag.last[:tag]).to eq 'Search Engine'
+    expect(LinkTag.last.tag.tag_name).to eq 'Search Engine'
   end
 
 end

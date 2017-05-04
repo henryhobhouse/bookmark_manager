@@ -3,6 +3,7 @@ ENV['RACK_ENV'] ||= 'test'
 require 'capybara/rspec'
 require_relative '../app/app.rb'
 require 'database_cleaner'
+require 'pry'
 
 Capybara.app = BookmarkManager
 
