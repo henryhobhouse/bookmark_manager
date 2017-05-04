@@ -7,7 +7,7 @@ gem 'sinatra'
 
 group :test do
   gem 'capybara'
+  gem 'pry'
   gem 'rerun'
   gem 'rubocop'
-  gem 'pry'
 end
