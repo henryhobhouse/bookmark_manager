@@ -7,13 +7,22 @@
   </div>
   <div>
     <% @links.each_with_index do |link, index|  %>
-    <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title] %></a></p>
+    <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title].capitalize %></a></p>
     <% end %>
   </div>
   <div>
     <form action='/links/new' method='get'>
       <button type='submit'>NEW LINK</button>
-    </form>
+    </form><br>
   </div>
+  <div>
+    <h2> Filter by Tag: </h2><br>
+  </div>
+  <div>
+    <% @tags.each do |tag|  %>
+    <p> <a href="/tag/<%= tag[:tag_name] %>"><%= tag[:tag_name].capitalize %></a></p>
+    <% end %>
+  </div>
+
 </body>
 </html>

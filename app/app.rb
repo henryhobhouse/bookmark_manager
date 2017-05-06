@@ -5,14 +5,17 @@ require_relative 'models/model_controller.rb'
 
 # Controller for bookmark app
 class BookmarkManager < Sinatra::Base
+
   get '/links' do
     @links = Link.all
+    @tags = Tag.all
     erb :links
   end
 
   post '/links' do
-    temp_tag = Tag.create(tag_name: params[:tag])
-    link = Link.create(url: params[:url], title: params[:title])
+    temp_tag = Tag.first_or_create(tag_name: params[:tag].downcase)
+    link = Link.first_or_create(url: params[:url].downcase,
+    title: params[:title].downcase)
     LinkTag.create(link: link, tag: temp_tag)
     redirect '/links'
   end

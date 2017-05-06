@@ -5,7 +5,7 @@ feature 'As a user I would like to see a list of my favourite URLs' do
   scenario 'Website is able to load links from the database and display them' do
     Link.create(url: 'http://test.com', title: 'Test Link')
     visit '/links'
-    expect(page).to have_content('Test Link')
+    expect(page).to have_content('Test link')
   end
 end
 
@@ -26,7 +26,7 @@ feature 'As a user I would like to add links to my favourite URLs' do
   end
 
   scenario '#Web app adds new URL to list from completed form' do
-    add_new_link
+    add_one_link
     visit('/links')
     expect(page).to have_content('Google')
   end
@@ -43,11 +43,26 @@ feature 'To find links faster I want to apply label tags' do
   end
 
   scenario '#User can add tags that are accessible on the links page' do
-    add_new_link
-    expect(LinkTag.last.tag.tag_name).to eq 'Search Engine'
+    add_one_link
+    expect(LinkTag.last.tag.tag_name).to eq 'search engine'
   end
 end
 
 # As a user
 # So that I can find similar URL's faster
 # I want to be able to filter my favourites by their tags
+
+feature 'To find links faster I wish to filter by tag' do
+
+  scenario '#expect to see a list of tags URLS on the links page' do
+    add_one_link
+    add_second_link
+    visit '/links'
+    expect(page).to have_link(nil, href: '/tag/bubbles')
+  end
+
+  scenario '#clicking a tag will only show a list of related links' do
+
+  end
+
+end
