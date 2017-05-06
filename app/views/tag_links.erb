@@ -1,0 +1,19 @@
+<html>
+<head>
+</head>
+<body>
+  <div>
+    <h1> Links for the <%= params[:name].capitalize %> tag are: </h1><br>
+  </div>
+  <div>
+    <% @tag_links.each_with_index do |link, index|  %>
+    <p> <b><%= index + 1 %>:</b>  <a href="<%= link[:url] %>"><%= link[:title] %></a></p>
+    <% end %>
+  </div>
+  <div>
+    <form action='/links' method='get'>
+      <button type='submit'>BACK TO ALL LINKS</button>
+    </form>
+  </div>
+</body>
+</html>

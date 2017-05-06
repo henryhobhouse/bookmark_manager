@@ -13,3 +13,11 @@ def add_second_link
   fill_in('tag', with: 'Bubbles')
   click_button('submit')
 end
+
+def add_third_link
+  visit('/links/new')
+  fill_in('title', with: 'Yahoo')
+  fill_in('url', with: 'http://www.yahoo.com')
+  fill_in('tag', with: 'Search Engine')
+  click_button('submit')
+end

@@ -5,7 +5,7 @@ feature 'As a user I would like to see a list of my favourite URLs' do
   scenario 'Website is able to load links from the database and display them' do
     Link.create(url: 'http://test.com', title: 'Test Link')
     visit '/links'
-    expect(page).to have_content('Test link')
+    expect(page).to have_content('Test Link')
   end
 end
 
@@ -53,16 +53,19 @@ end
 # I want to be able to filter my favourites by their tags
 
 feature 'To find links faster I wish to filter by tag' do
-
   scenario '#expect to see a list of tags URLS on the links page' do
     add_one_link
     add_second_link
     visit '/links'
-    expect(page).to have_link(nil, href: '/tag/bubbles')
+    expect(page).to have_link('Bubbles', href: '/tag/bubbles')
   end
 
   scenario '#clicking a tag will only show a list of related links' do
-
+    add_one_link
+    add_second_link
+    add_third_link
+    visit '/tag/bubbles'
+    expect(page).to have_link('BBC', href: 'http://www.bbc.com')
+    expect(page).to_not have_link('Google', href: 'http://www.google.com')
   end
-
 end
