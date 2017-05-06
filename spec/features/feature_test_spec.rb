@@ -39,12 +39,18 @@ end
 feature 'To find links faster I want to apply label tags' do
   scenario '#User can add label tags to new links' do
     visit '/links/new'
-    expect(page).to have_content('Tag:')
+    expect(page).to have_content('Tag/s:')
   end
 
   scenario '#User can add tags that are accessible on the links page' do
     add_one_link
-    expect(LinkTag.last.tag.tag_name).to eq 'search engine'
+    expect(Link.last.tags.map(&:tag_name)).to include('search engine')
+  end
+
+  scenario '#User can add multiple tags to each link' do
+    add_link_two_tags
+    expect(Link.last.tags.map(&:tag_name)).to include('search engine',
+                                                      'search pioneer')
   end
 end
 
@@ -63,7 +69,6 @@ feature 'To find links faster I wish to filter by tag' do
   scenario '#clicking a tag will only show a list of related links' do
     add_one_link
     add_second_link
-    add_third_link
     visit '/tag/bubbles'
     expect(page).to have_link('BBC', href: 'http://www.bbc.com')
     expect(page).to_not have_link('Google', href: 'http://www.google.com')

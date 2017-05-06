@@ -21,7 +21,7 @@
   <div>
     <p>
     <% @tags.each do |tag|  %>
-    <a href="/tag/<%= tag[:tag_name] %>"><%= tag[:tag_name].capitalize %></a>  -
+    - <a href="/tag/<%= tag[:tag_name] %>"><%= tag[:tag_name].capitalize %></a>
     <% end %>
     </p>
   </div>

@@ -12,10 +12,11 @@ class BookmarkManager < Sinatra::Base
   end
 
   post '/links' do
-    temp_tag = Tag.first_or_create(tag_name: params[:tag].downcase)
     link = Link.first_or_create(url: params[:url].downcase,
                                 title: params[:title])
-    LinkTag.first_or_create(link: link, tag: temp_tag)
+    tags = params[:tag].downcase.split(/\s*,\s*/)
+    tags.each { |tag| link.tags << Tag.first_or_create(tag_name: tag) }
+    link.save
     redirect '/links'
   end
 
