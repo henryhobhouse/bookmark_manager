@@ -36,20 +36,17 @@ end
 # So that I can see what type of URL's it is
 # I want to be able to tag the URL with a category label
 
-feature 'To find links faster I want to give them label tags that I can filter' do
-
+feature 'To find links faster I want to apply label tags' do
   scenario '#User can add label tags to new links' do
     visit '/links/new'
     expect(page).to have_content('Tag:')
   end
 
-  scenario "#User can add tags that are accessible on the links page" do
+  scenario '#User can add tags that are accessible on the links page' do
     add_new_link
     expect(LinkTag.last.tag.tag_name).to eq 'Search Engine'
   end
-
 end
-
 
 # As a user
 # So that I can find similar URL's faster
