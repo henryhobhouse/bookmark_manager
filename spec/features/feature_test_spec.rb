@@ -26,10 +26,7 @@ feature 'As a user I would like to add links to my favourite URLs' do
   end
 
   scenario '#Web app adds new URL to list from completed form' do
-    visit('/links/new')
-    fill_in('title', with: 'Google')
-    fill_in('url', with: 'http://www.google.com')
-    click_button('submit')
+    add_new_link
     visit('/links')
     expect(page).to have_content('Google')
   end
@@ -46,12 +43,8 @@ feature 'To find links faster I want to give them label tags that I can filter' 
     expect(page).to have_content('Tag:')
   end
 
-  scenario "#User can see tags on the '/links' page" do
-    visit '/links/new'
-    fill_in('title', with: 'Google')
-    fill_in('url', with: 'http://www.google.com')
-    fill_in('tag', with: 'Search Engine')
-    click_button('submit')
+  scenario "#User can add tags that are accessible on the links page" do
+    add_new_link
     expect(LinkTag.last.tag.tag_name).to eq 'Search Engine'
   end
 

@@ -2,6 +2,7 @@ ENV['RACK_ENV'] ||= 'test'
 
 require 'capybara/rspec'
 require_relative '../app/app.rb'
+require_relative './web_helper.rb'
 require 'database_cleaner'
 require 'pry'
 
