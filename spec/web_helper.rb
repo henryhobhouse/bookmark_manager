@@ -21,3 +21,10 @@ def add_link_two_tags
   fill_in('tag', with: 'Search Engine, Search Pioneer')
   click_button('submit')
 end
+
+def sign_up
+  visit '/'
+  fill_in('email', with: 'henryhobhouse@gmail.com')
+  fill_in('password', with: 'cunningpassword')
+  click_button('submit')
+end

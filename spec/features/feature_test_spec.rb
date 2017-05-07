@@ -84,14 +84,24 @@ feature 'Allows a user to sign in securely to view their personal links' do
   end
 
   scenario '#Will redirect user to links page after submission' do
+    sign_up
+    page.has_xpath('//links')
   end
 
   scenario '#Checks the links page shows a welcome message as first login' do
+    sign_up
+    expect(page).to have_content('Welcome to favourites')
+    visit '/links'
+    expect(page).to_not have_content('Welcome to favourites')
   end
 
   scenario '#Checks that the users email address is shown on welcome message' do
+    sign_up
+    expect(page).to have_content('to favourites henryhobhouse@gmail.com')
   end
 
   scenario '#Checks the user count increases by 1' do
+    sign_up
+    expect(User.total).to eq 1
   end
 end
