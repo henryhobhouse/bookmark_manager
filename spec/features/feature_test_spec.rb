@@ -74,3 +74,24 @@ feature 'To find links faster I wish to filter by tag' do
     expect(page).to_not have_link('Google', href: 'http://www.google.com')
   end
 end
+
+feature 'Allows a user to sign in securely to view their personal links' do
+  scenario '#Can visit a signup page that accepts a user name and password' do
+    visit '/'
+    expect(page).to have_field('email')
+    expect(page).to have_field('password')
+    expect(page).to have_button('submit')
+  end
+
+  scenario '#Will redirect user to links page after submission' do
+  end
+
+  scenario '#Checks the links page shows a welcome message as first login' do
+  end
+
+  scenario '#Checks that the users email address is shown on welcome message' do
+  end
+
+  scenario '#Checks the user count increases by 1' do
+  end
+end

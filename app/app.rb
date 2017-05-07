@@ -5,6 +5,14 @@ require_relative 'models/model_controller.rb'
 
 # Controller for bookmark app
 class BookmarkManager < Sinatra::Base
+  get '/' do
+    erb :sign_up
+  end
+
+  get '/sign-in' do
+    erb :sign_in
+  end
+
   get '/links' do
     @links = Link.all
     @tags = Tag.all

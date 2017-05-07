@@ -125,6 +125,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper
   database_cleaner
@@ -134,6 +135,9 @@ DEPENDENCIES
   rerun
   rubocop
   sinatra
+
+RUBY VERSION
+   ruby 2.4.0p0
 
 BUNDLED WITH
    1.14.6
