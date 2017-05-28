@@ -1,3 +1,4 @@
+
 # Model for Tags assocaited with links
 class Tag
   include DataMapper::Resource
