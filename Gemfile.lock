@@ -28,6 +28,7 @@ GEM
     data_objects (0.10.17)
       addressable (~> 2.1)
     database_cleaner (1.6.0)
+    diff-lcs (1.3)
     dm-aggregates (1.2.0)
       dm-core (~> 1.2.0)
     dm-constraints (1.2.0)
@@ -101,6 +102,19 @@ GEM
       ffi (>= 0.5.0)
     rerun (0.11.0)
       listen (~> 3.0)
+    rspec (3.6.0)
+      rspec-core (~> 3.6.0)
+      rspec-expectations (~> 3.6.0)
+      rspec-mocks (~> 3.6.0)
+    rspec-core (3.6.0)
+      rspec-support (~> 3.6.0)
+    rspec-expectations (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-mocks (3.6.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.6.0)
+    rspec-support (3.6.0)
     rubocop (0.48.1)
       parser (>= 2.3.3.1, < 3.0)
       powerpack (~> 0.1)
@@ -113,6 +127,8 @@ GEM
       rack (~> 1.5)
       rack-protection (~> 1.4)
       tilt (>= 1.3, < 3)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     slop (3.6.0)
     stringex (1.5.1)
     tilt (2.0.7)
@@ -133,11 +149,13 @@ DEPENDENCIES
   pry
   rake
   rerun
+  rspec
   rubocop
   sinatra
+  sinatra-flash
 
 RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.6
+   1.15.0

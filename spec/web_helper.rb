@@ -22,9 +22,12 @@ def add_link_two_tags
   click_button('submit')
 end
 
-def sign_up
-  visit '/'
-  fill_in('email', with: 'henryhobhouse@gmail.com')
-  fill_in('password', with: 'cunningpassword')
+def sign_up(email: 'henryhobhouse@gmail.com',
+            password: 'cunningpassword',
+            password_confirmation: 'cunningpassword')
+  visit '/sign_up'
+  fill_in('email', with: email)
+  fill_in('password', with: password)
+  fill_in('password_confirmation', with: password_confirmation)
   click_button('submit')
 end

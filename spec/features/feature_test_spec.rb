@@ -101,4 +101,15 @@ feature 'Allows a user to sign in securely to view their personal links' do
   scenario '#Checks the user count increases by 1' do
     expect { sign_up }.to change { User.count }.by(1)
   end
+
+  scenario '#requires a matching confirmation password' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+  end
+
+  scenario '#with a password that does not match' do
+    expect { sign_up(password_confirmation: 'wrong') }.not_to change(User, :count)
+    expect(current_path).to eq('/') # current_path is a helper provided by Capybara
+    expect(page).to have_content 'Password and confirmation password do not match'
+  end
+
 end
